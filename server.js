@@ -7,12 +7,28 @@ import { sendWelcomeEmail } from "./mailgunClient.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS: allow Netlify frontend only (for security)
+const allowedOrigins = [
+  "https://june.money", 
+  "https://june.netlify.app",   // your Netlify frontend
+  "http://localhost:5173"       // local dev
+];
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST"],
+  credentials: true,
+}));
+
 app.use(express.json());
 
-// Save verified user + send Mailgun email
+// ✅ Health check route (helps Render verify your app)
+app.get("/", (req, res) => {
+  res.status(200).send("✅ June Backend is live on Render!");
+});
+
+// ✅ Save verified user + send Mailgun email
 app.post("/api/verify-success", async (req, res) => {
-    
   try {
     const { email } = req.body;
     if (!email) return res.status(400).json({ error: "Email required" });
@@ -29,14 +45,17 @@ app.post("/api/verify-success", async (req, res) => {
     const sent = await sendWelcomeEmail(email);
     if (!sent) {
       console.warn("⚠️ Could not send welcome email to:", email);
+    } else {
+      console.log("📩 Welcome email sent successfully to:", email);
     }
 
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Error saving verified user:", error);
+    console.error("❌ Error saving verified user:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
 
-const PORT = process.env.PORT || 5000;
+// ✅ Dynamic port (for Render)
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
