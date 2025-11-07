@@ -27,7 +27,7 @@ export async function sendWelcomeEmail(email) {
             <h2>Hey there 👋</h2>
             <p>Thanks for verifying your email! You’re officially part of JUNE’s early access list.</p>
             <p>We’ll keep you posted with updates and exclusive invites soon.</p>
-            <a href="https://yourapp.com" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#004499; color:white; text-decoration:none; border-radius:6px;">Visit Our Site</a>
+            <a href="https://june.money/" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#004499; color:white; text-decoration:none; border-radius:6px;">Visit Our Site</a>
           </div>
           <p style="font-size:12px; color:#666; margin-top:30px; text-align:center;">© 2025 JUNE. All rights reserved.</p>
         </div>
