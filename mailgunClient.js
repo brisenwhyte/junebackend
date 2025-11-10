@@ -1,3 +1,4 @@
+// mailgunClient.js
 import formData from "form-data";
 import Mailgun from "mailgun.js";
 import dotenv from "dotenv";
@@ -10,9 +11,9 @@ const mg = mailgun.client({
   key: process.env.MAILGUN_API_KEY,
 });
 
-export { mg }; // ✅ add this
+export { mg };
 
-export async function sendWelcomeEmail(email) {
+export async function sendWelcomeEmail(email, referralCode) {
   try {
     const messageData = {
       from: process.env.MAILGUN_FROM,
@@ -26,8 +27,15 @@ export async function sendWelcomeEmail(email) {
           </div>
           <div style="padding: 20px; text-align:center; background:white; border-radius: 8px; margin-top:20px;">
             <h2>Hey there 👋</h2>
-            <p>Thanks for verifying your email! You’re officially part of JUNE’s early access list.</p>
-            <p>We’ll keep you posted with updates and exclusive invites soon.</p>
+            <p>Thanks for verifying your email! You're officially part of JUNE's early access list.</p>
+            
+            <div style="margin: 30px 0; padding: 20px; background: #f0f7ff; border-radius: 8px; border: 2px dashed #004499;">
+              <p style="margin: 0 0 10px 0; color: #666; font-size: 14px;">Your unique referral code:</p>
+              <p style="margin: 0; font-size: 24px; font-weight: bold; color: #004499; letter-spacing: 2px;">${referralCode}</p>
+              <p style="margin: 15px 0 0 0; color: #666; font-size: 14px;">Share this code with friends and climb the leaderboard! 🚀</p>
+            </div>
+
+            <p>We'll keep you posted with updates and exclusive invites soon.</p>
             <a href="https://june.money/" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#004499; color:white; text-decoration:none; border-radius:6px;">Visit Our Site</a>
           </div>
           <p style="font-size:12px; color:#666; margin-top:30px; text-align:center;">© 2025 JUNE. All rights reserved.</p>
