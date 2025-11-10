@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { db, auth } from "./firebaseAdmin.js";
 import { mg, sendWelcomeEmail } from "./mailgunClient.js";
+import admin from "firebase-admin";
 
 dotenv.config();
 
