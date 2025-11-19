@@ -22,15 +22,12 @@ export async function sendWelcomeEmail(email, referralCode) {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin:auto; padding: 20px; background: #f5f5f5;">
           <div style="background: linear-gradient(135deg, #004499, #ff7733); padding: 30px; border-radius: 10px; color: white; text-align:center;">
-            // <h1>Welcome to JUNE</h1>
-            // <p>Money's new season begins with you.</p>
             <h1>You’re in early — welcome to June 🌞</h1>
             <p>You’ve joined a new kind of savings movement.</p>
           </div>
           <div style="padding: 20px; text-align:center; background:white; border-radius: 8px; margin-top:20px;">
             <h2>Hey there 👋</h2>
             <p>Thanks for verifying your email! You're officially part of JUNE's early access list.</p>
-            <br>
             <br>
             <p>As one of the first members, you now have 5 exclusive invites to share with people you care about — parents, friends, or anyone who wants a simpler way to save.</p>
             <p>Each person who joins with your link moves you closer to priority early access when June launches.</p>
