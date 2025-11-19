@@ -192,7 +192,7 @@ app.post("/api/send-signin-email", async (req, res) => {
     const messageData = {
       from: process.env.MAILGUN_FROM,
       to: email,
-      subject: "You’re early 🌞 Let’s finish setting up your June invite",
+      subject: "You’re early 🌞 Let’s finish setting up your June access",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin:auto; padding: 20px; background: #f5f5f5;">
           <div style="background: linear-gradient(135deg, #004499, #ff7733); padding: 30px; border-radius: 10px; color: white; text-align:center;">
