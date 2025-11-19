@@ -192,7 +192,7 @@ app.post("/api/send-signin-email", async (req, res) => {
     const messageData = {
       from: process.env.MAILGUN_FROM,
       to: email,
-      subject: "Sign in to JUNE 🌞",
+      subject: "You’re early 🌞 Let’s finish setting up your June invite",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin:auto; padding: 20px; background: #f5f5f5;">
           <div style="background: linear-gradient(135deg, #004499, #ff7733); padding: 30px; border-radius: 10px; color: white; text-align:center;">
@@ -201,8 +201,9 @@ app.post("/api/send-signin-email", async (req, res) => {
           </div>
           <div style="padding: 20px; text-align:center; background:white; border-radius: 8px; margin-top:20px;">
             <h2>Hey there 👋</h2>
-            <p>Click below to securely verify your email and sign in:</p>
-            <a href="${link}" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#004499; color:white; text-decoration:none; border-radius:6px;">Verify & Join JUNE</a>
+            <p>Tap below to confirm your spot and join the early list for June</p>
+            <p>The new way to save for your family’s future.</p>
+            <a href="${link}" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#004499; color:white; text-decoration:none; border-radius:6px;">Confirm & Join June</a>
             ${referralCode ? `<p style="margin-top:20px; color:#666;">Referred by code: <strong>${referralCode}</strong></p>` : ''}
           </div>
           <p style="font-size:12px; color:#666; margin-top:30px; text-align:center;">
